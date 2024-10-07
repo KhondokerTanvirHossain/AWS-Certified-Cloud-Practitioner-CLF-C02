@@ -18,20 +18,9 @@ This document contains my AWS knowledge learned during the AWS Certified Cloud P
 
 ---
 
-## Introduction to AWS
+## Introduction to Cloud Computing and AWS
 
-Amazon Web Services (AWS) is a secure cloud services platform offering compute power, database storage, content delivery, and other functionality to help businesses scale and grow.
-
-Key benefits of AWS:
-- **Scalability:** On-demand resources.
-- **Cost-effective:** Pay-as-you-go pricing.
-- **Flexibility:** Multiple services for different workloads.
-
----
-
-### Foundations of Cloud Computing
-
-#### What is cloud
+### What is cloud
 
 [Cloud computing](#https://www.ibm.com/topics/cloud-computing) refers to the delivery of computing services, like storage and processing, over the internet rather than relying on local data centers. AWS provides these services through a global network of servers organized in data centers.
 
@@ -46,16 +35,16 @@ Cloud computing enables businesses to scale without upfront infrastructure costs
 
 By familiarizing yourself with these categories, you gain a better understanding of how AWS services work and can utilize them efficiently.
 
-#### Introducing Cloud Computing and Deployment Models
+### Introducing Cloud Computing and Deployment Models
 
 In this lesson, we explore the key concepts of cloud computing, comparing **CapEx** (Capital Expenditures) with **OpEx** (Operating Expenses), followed by an introduction to cloud computing models and deployment models.
 
-#### CapEx vs. OpEx
+### CapEx vs. OpEx
 
 - **CapEx**: Upfront investments in fixed assets like equipment, property, and software.
 - **OpEx**: Ongoing costs to support daily operations, such as salaries, rent, and utilities.
 
-#### Six Advantages of Cloud Computing
+### Six Advantages of Cloud Computing
 
 1. **Global Deployment**: Launch applications worldwide at the click of a button.
 2. **Focus on Development**: AWS manages the infrastructure, allowing you to focus on building applications.
@@ -64,59 +53,61 @@ In this lesson, we explore the key concepts of cloud computing, comparing **CapE
 5. **Elasticity**: Resources scale automatically with demand.
 6. **Cost Efficiency**: Pay only for what you use without upfront investments.
 
-#### Benefits of Cloud Computing
+### Benefits of Cloud Computing
 
 - **High Availability**: Systems designed to operate continuously with minimal failures.
 - **Elasticity**: Provision resources as needed, saving time and costs.
 - **Agility**: Cloud services allow for faster innovation and speed to market.
 - **Durability**: Long-term data protection ensures data integrity.
 
-#### Cloud Computing Models
+### Cloud Computing Models
 
 1. **Infrastructure as a Service (IaaS)**: Rent and manage building blocks like servers and networks. Example: AWS EC2.
 2. **Software as a Service (SaaS)**: Use complete applications on demand. Example: Web-based email.
 3. **Platform as a Service (PaaS)**: Provides tools for developers to build applications without managing underlying infrastructure. Example: AWS Elastic Beanstalk.
 
-#### Cloud Deployment Models
+### Cloud Deployment Models
 
 1. **Private Cloud**: Resources are hosted on-premises, providing more control and security but lacking cloud flexibility.
 2. **Public Cloud**: AWS, Azure, GCP provide the hardware and services, offering all cloud benefits like scalability and cost-efficiency.
 3. **Hybrid Cloud**: Combines private and public clouds, often with sensitive data stored locally while leveraging cloud services for scalability. Secure connections such as VPN or AWS Direct Connect link private and public clouds.
 
-#### AWS Availability Zones (AZs)
 ---
-#### AWS Regions
+
+## AWS Availability Zones (AZs)
+
+### AWS Regions
 
 An AWS **Region** is a physical location that groups AWS services and infrastructure based on geographic areas. Each region operates independently and is isolated from other regions, ensuring that if one region is affected by an event such as a natural disaster, other regions remain unaffected. Resources and services within a region do not automatically replicate to other regions, so replication must be done manually.
 
 For example, the **US East** geographic location includes the **Ohio** and **North Virginia** regions. Each region is designed to provide independence in terms of resource management and failure isolation.
 
-#### AWS Availability Zones (AZs)
+### AWS Availability Zones (AZs)
 
 AWS regions consist of multiple **Availability Zones (AZs)**, which are sets of one or more data centers located in separate facilities within a region. Each AZ has independent power, networking, and connectivity, ensuring fault tolerance. While the number of data centers in an AZ is not explicitly documented by AWS, an AZ typically consists of several discrete data centers.
 
 AZs are connected via low-latency links to ensure high availability. If one AZ experiences failure, applications running across multiple AZs will remain functional in the remaining zones. This redundancy supports both **high availability** and **fault tolerance** for critical applications.
 
-#### Key Characteristics
+### Key Characteristics
 
 - **Regions** are isolated and resource-specific.
 - **Availability Zones** are fault-tolerant and connected via low-latency links.
 - Deploying applications across multiple AZs enhances both high availability and fault tolerance.
 
-#### Scenarios
+### Scenarios
 
 - An application running in a single AZ (e.g., **us-east-1a**) is **not fault-tolerant**. For fault tolerance, it must span multiple AZs.
 - If an application running across multiple AZs experiences downtime, the entire region may be out of service.
 
-### Edge Locations and Local Zones
-
 ---
 
-#### Latency
+## Edge Locations and Local Zones
+
+### Latency
 
 **Latency** refers to the amount of time between a user's request and the corresponding response from a server. Lower latency is desirable as it means faster load times and a better user experience.
 
-#### Local Zones
+### Local Zones
 
 **Local Zones** are extensions of AWS Regions that place compute, storage, database, and other select AWS services closer to end-users. This proximity allows for applications that require ultra-low latency, typically in the single-digit milliseconds, such as real-time gaming or live video streaming.
 
@@ -126,7 +117,7 @@ Key characteristics of Local Zones:
 - Offer high-bandwidth and secure connections between local workloads and those running in the parent AWS Region.
 - Ideal for latency-sensitive applications.
 
-#### Edge Locations
+### Edge Locations
 
 **Edge Locations** are sites that AWS CloudFront uses to cache copies of your content for faster delivery to users across the globe. They are not used to launch resources but serve as global endpoints to reduce latency by delivering content closer to where users are located.
 
@@ -136,7 +127,7 @@ Key characteristics of Edge Locations:
 - There are more Edge Locations than AWS Regions and Availability Zones.
 - Utilize the AWS global network backbone for efficient content delivery.
 
-#### Scenarios
+### Scenarios
 
 1. **Scenario**: You need to ensure millisecond latency for a new application.
    - **Solution**: Use **Local Zones** to place services closer to end-users.
@@ -144,11 +135,12 @@ Key characteristics of Edge Locations:
 2. **Scenario**: You want to lower latency for a website available on two continents.
    - **Solution**: Utilize **Edge Locations** through AWS CloudFront to cache content closer to users.
 
-### Introducing the Frameworks
-
 ---
 
-#### Cloud Adoption Framework Overview
+
+## Introducing the Frameworks
+
+### Cloud Adoption Framework Overview
 
 The AWS **Cloud Adoption Framework (CAF)** helps businesses use AWS to digitally transform and accelerate outcomes. It consists of six **perspectives** that cover foundational capabilities:
 
@@ -161,7 +153,7 @@ The AWS **Cloud Adoption Framework (CAF)** helps businesses use AWS to digitally
 
 The framework also includes four **transformation domains**: technology, process, organizational, and product transformation, and follows a phased **journey**: **Envision**, **Align**, **Launch**, and **Scale**.
 
-#### Well-Architected Framework Overview
+### Well-Architected Framework Overview
 
 The **Well-Architected Framework** is designed to help businesses build secure, efficient, and reliable applications in the cloud. It includes six key pillars:
 
@@ -179,8 +171,6 @@ Here's a concise and formal version of the transcript for your chapter on "AWS M
 ---
 
 ## AWS Management Console and Accessing AWS
-
-In this lesson, we explore the AWS **Management Console**, the **root user**, and alternative ways to access AWS resources, including the **CLI** and **SDKs**.
 
 ### AWS Management Console
 
@@ -200,15 +190,11 @@ The **root user** is the most powerful account in AWS. It is created when settin
 
 ---
 
-Here's a concise and formal version of the transcript for your chapter on "Exploring Your Amazon Web Services (AWS) Account":
-
----
-
-### Exploring Your Amazon Web Services (AWS) Account
+## Exploring Your Amazon Web Services (AWS) Account
 
 In this lesson, we will walk through the process of creating and securing an AWS account, setting up a root user, and creating a daily user for managing AWS resources.
 
-#### Creating an AWS Account
+### Creating an AWS Account
 
 To create an AWS account:
 1. Navigate to the AWS signup page and enter your **email address** and **account name**.
@@ -217,7 +203,7 @@ To create an AWS account:
 4. Choose a support plan (for this demonstration, select **Basic Support**).
 5. Log in for the first time using the **root user** credentials.
 
-#### Securing the Root User
+### Securing the Root User
 
 The root user is the most powerful account and should be secured immediately:
 1. Log in to the **AWS Management Console** with the root user.
@@ -225,7 +211,7 @@ The root user is the most powerful account and should be secured immediately:
 3. Set up **Multi-Factor Authentication (MFA)** using an authenticator app like Google Authenticator or Duo Mobile.
 4. Verify the MFA setup by entering the generated code.
 
-#### Creating a Daily User
+### Creating a Daily User
 
 To create a daily user for regular account access:
 1. In the IAM dashboard, select **Users** and click **Create User**.
@@ -234,13 +220,82 @@ To create a daily user for regular account access:
 4. Attach the **AdministratorAccess** policy to give the user administrative permissions (for demonstration purposes).
 5. Complete the user setup and save the **account ID** for future logins.
 
-#### Logging In as the Daily User
+### Logging In as the Daily User
 
 1. Sign out from the root user session.
 2. Select **IAM User** on the login page, input your **account ID**, and enter the **username** and **password** for the daily user.
 3. You are now logged in as the daily user, ready to manage AWS resources.
 
 ---
+
+## Foundations of Cloud Computing Review
+
+### Service Categories
+
+- **Read the AWS Services Whitepaper**: This will help you quickly identify which services fit specific categories (e.g., EC2 is a compute service, while S3 is not).
+- **Know the Six Advantages of Cloud Computing**:
+  1. Global deployment in minutes.
+  2. Eliminate data center expenses.
+  3. Stop guessing capacity.
+  4. Increase speed and agility.
+  5. Benefit from economies of scale.
+  6. Trade fixed expenses for variable ones.
+
+### Cloud Benefits
+
+Understand cloud benefits, including:
+
+- **High Availability**: Systems designed to operate without failure for a long period.
+- **Elasticity**: The ability to scale resources based on demand.
+- **Agility**: Rapidly adapt to changes in business requirements.
+- **Durability**: Long-term data integrity and protection.
+
+### Cloud Computing Models In a nut shell
+
+- **IaaS (Infrastructure as a Service)**: Renting computing resources (e.g., hosting a website).
+- **SaaS (Software as a Service)**: Accessing complete applications via the web (e.g., email).
+- **PaaS (Platform as a Service)**: Developing applications without managing infrastructure (e.g., using developer tools on a cloud platform).
+
+### Cloud Deployment Models in a nut shell
+
+- **Private Cloud**: Resources hosted on-premises or in your own data center.
+- **Public Cloud**: Utilizing cloud providers like AWS to run everything.
+- **Hybrid Cloud**: Combining private and public clouds with secure connections, such as **Direct Connect**.
+
+### Regions and Availability Zones
+
+- **Regions** consist of two or more **Availability Zones (AZs)**.
+- **AZs** are made up of multiple data centers and provide **high availability** and **fault tolerance**.
+- **Edge Locations** reduce latency by caching content closer to users through **CloudFront**.
+- **Local Zones** bring AWS services closer to users for millisecond latency in applications like real-time gaming.
+
+### Cloud Adoption Framework
+
+- **Phases**: Envision, Align, Launch, and Scale (continuous process).
+- **Benefits**: Reduces business risks, improves ESG (Environmental, Social, and Governance), grows revenue, and increases operational efficiency.
+
+### Well-Architected Framework
+
+- Six pillars:
+  1. **Security**
+  2. **Cost Optimization**
+  3. **Performance Efficiency**
+  4. **Operational Excellence**
+  5. **Reliability**
+  6. **Sustainability**
+
+Understand how to apply services that align with each pillar.
+
+### AWS Management Console in a nut shell
+
+- **Root User**: Most powerful user in AWS, capable of deleting accounts and resources. Protect it using **MFA**.
+- **Daily Users/Groups**: Create users for daily tasks.
+- AWS resources can be managed through the **AWS Console**, **CLI**, and **SDKs**.
+- Remember to check the **region** before making changes to any resources.
+
+---
+
+This concise version captures all the important tips for the exam while keeping it structured and clear. Let me know if you'd like to adjust or add anything!
 
 ## AWS Global Infrastructure
 
